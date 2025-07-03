@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Enter Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen font-sans">
+
+  <form
+    action="/login"
+    method="POST"
+    class="bg-gray-800 p-8 rounded-2xl shadow-2xl w-full max-w-sm text-center space-y-6"
+  >
+    <h1 class="text-3xl font-bold text-white">Enter Your Name</h1>
+
+    <input
+      type="text"
+      name="username"
+      placeholder="Your name"
+      required
+      class="w-full px-4 py-3 rounded-lg text-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-green-500"
+    />
+
+    <button
+      type="submit"
+      class="w-full bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-semibold py-3 rounded-lg transition transform hover:scale-105 active:scale-95"
+    >
+      Continue
+    </button>
+  </form>
+  <script>
+    const form = document.querySelector('form');
+    const username = document.querySelector('input').value;
+    form.addEventListener('submit',()=>{
+      localStorage.setItem('username',username)
+    })
+  </script>
+</body>
+</html>

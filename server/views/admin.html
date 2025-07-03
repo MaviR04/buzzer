@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reset Buzzers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-900 text-white font-sans">
+    <div class="flex flex-col gap-12">
+        <div class="text-2xl font-bold" id="firstBuzzer"></div>
+        <button
+            id="resetBtn"
+            class="bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-6 rounded-2x    l text-xl shadow-lg transition-all"
+        >
+            Reset Buzzers
+        </button>
+    
+    </div>
+  <script defer>
+     const socket = new WebSocket('ws://localhost:3001/ws');
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      socket.send("true");
+    });
+
+    socket.onmessage = ({data}) =>{
+        console.log(data)
+        document.getElementById("firstBuzzer").innerText = `${data} Buzzed In!`
+    }
+  </script>
+</body>
+</html>

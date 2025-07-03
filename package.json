@@ -1,0 +1,21 @@
+{
+  "name": "buzzer",
+  "version": "1.0.0",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "express-ws": "^5.0.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.10",
+    "tailwindcss": "^4.1.11"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
