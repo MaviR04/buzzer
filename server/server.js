@@ -14,12 +14,6 @@ const port = 3001;
 const app = expressWs(express()).app
 const expressws = expressWs(app)
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'jeopardy'
-  })
 
 
 
@@ -60,14 +54,6 @@ app.post('/login',(req,res)=>{
             httpOnly: true,
             sameSite: "Lax",
         });
-        connection.connect();
-        connection.query("INSERT INTO users (token, name, points) VALUES (?, ?, ?)",[token,name,0],(err,rows,fields)=>{
-            if(err){
-                console.error('error inserting user ',err)
-                return
-            }
-            console.log('User inserted:', rows);
-        })
         res.redirect('/buzzer')
     }
     
